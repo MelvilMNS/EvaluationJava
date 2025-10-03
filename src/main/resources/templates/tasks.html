@@ -17,10 +17,10 @@
     <table class="table">
         <thead>
         <tr>
-            <th>ID</th>
-            <th>Titre</th>
-            <th>Propriétaire</th>
-            <th colspan="2">Actions</th>
+            <th style="width:25%">ID</th>
+            <th style="width:25%">Prénom</th>
+            <th style="width:25%">Nom</th>
+            <th style="width:25%" class="text-center">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -28,10 +28,14 @@
             <td th:text="${t.id}">1</td>
             <td th:text="${t.title}">Titre</td>
             <td th:text="${t.owner != null ? t.owner.firstName + ' ' + t.owner.lastName : '—'}">Propriétaire</td>
-            <td><a th:href="@{'/tasks/' + ${t.id}}" class="btn btn-sm btn-primary">Détail</a></td>
-            <form th:action="@{'/tasks/' + ${t.id} + '/delete'}" method="post" style="display:inline">
-                <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
-            </form>
+            <td class="d-flex align-items-center justify-content-center">
+                <div class="d-flex gap-2">
+                    <a th:href="@{'/tasks/' + ${t.id}}" class="btn btn-sm btn-primary">Détail</a>
+                    <form th:action="@{'/tasks/' + ${t.id} + '/delete'}" method="post" style="display:inline">
+                        <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
+                    </form>
+                </div>
+            </td>
         </tr>
         </tbody>
     </table>

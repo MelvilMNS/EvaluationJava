@@ -14,25 +14,29 @@
         <a href="/users/new" class="btn btn-success">Ajouter un utilisateur</a>
     </div>
 
-    <table class="table">
+    <table class="table table-fixed">
         <thead>
         <tr>
-            <th>ID</th>
-            <th>Prénom</th>
-            <th>Nom</th>
-            <th colspan="2">Actions</th>
+            <th style="width:25%">ID</th>
+            <th style="width:25%">Prénom</th>
+            <th style="width:25%">Nom</th>
+            <th style="width:25%" class="text-center">Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="u : ${users}">
-            <td th:text="${u.id}">1</td>
-            <td th:text="${u.firstName}">Prénom</td>
-            <td th:text="${u.lastName}">Nom</td>
-            <td><a th:href="@{'/users/' + ${u.id}}" class="btn btn-sm btn-primary">Détail</a></td>
-            <form th:action="@{'/users/' + ${u.id} + '/delete'}" method="post" style="display:inline">
-                <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
-            </form>
-        </tr>
+            <tr th:each="u : ${users}">
+                <td th:text="${u.id}">1</td>
+                <td th:text="${u.firstName}">Prénom</td>
+                <td th:text="${u.lastName}">Nom</td>
+                <td class="d-flex align-items-center justify-content-center">
+                    <div class="d-flex gap-2">
+                        <a th:href="@{'/users/' + ${u.id}}" class="btn btn-sm btn-primary">Détail</a>
+                        <form th:action="@{'/users/' + ${u.id} + '/delete'}" method="post" style="display:inline">
+                            <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
         </tbody>
     </table>
 
