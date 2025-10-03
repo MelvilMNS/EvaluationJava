@@ -20,7 +20,7 @@
             <th>ID</th>
             <th>Prénom</th>
             <th>Nom</th>
-            <th></th>
+            <th colspan="2">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -29,6 +29,9 @@
             <td th:text="${u.firstName}">Prénom</td>
             <td th:text="${u.lastName}">Nom</td>
             <td><a th:href="@{'/users/' + ${u.id}}" class="btn btn-sm btn-primary">Détail</a></td>
+            <form th:action="@{'/users/' + ${u.id} + '/delete'}" method="post" style="display:inline">
+                <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
+            </form>
         </tr>
         </tbody>
     </table>

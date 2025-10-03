@@ -20,7 +20,7 @@
             <th>ID</th>
             <th>Titre</th>
             <th>Propriétaire</th>
-            <th></th>
+            <th colspan="2">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -29,6 +29,9 @@
             <td th:text="${t.title}">Titre</td>
             <td th:text="${t.owner != null ? t.owner.firstName + ' ' + t.owner.lastName : '—'}">Propriétaire</td>
             <td><a th:href="@{'/tasks/' + ${t.id}}" class="btn btn-sm btn-primary">Détail</a></td>
+            <form th:action="@{'/tasks/' + ${t.id} + '/delete'}" method="post" style="display:inline">
+                <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
+            </form>
         </tr>
         </tbody>
     </table>
