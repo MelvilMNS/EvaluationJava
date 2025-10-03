@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tâche</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+<div class="container">
+    <h2>Détail d'une tâche</h2>
+
+    <div th:if="${task!=null}">
+        <p><strong>ID : </strong><span th:text="${task.id}">1</span></p>
+        <p><strong>Titre : </strong><span th:text="${task.title}">Titre</span></p>
+        <p><strong>Description : </strong><span th:text="${task.description}">Description</span></p>
+        <p><strong>Propriétaire : </strong>
+            <span th:if="${task.owner!=null}">
+                <a th:href="@{'/users/' + ${task.owner.id}}" th:text="${task.owner.firstName + ' ' + task.owner.lastName}">Nom</a>
+            </span>
+            <span th:if="${task.owner==null}">—</span>
+        </p>
+    </div>
+
+    <a href="/tasks" class="btn btn-link">Retour aux tâches</a>
+</div>
+</body>
+</html>
