@@ -18,8 +18,9 @@
         <thead>
         <tr>
             <th style="width:25%">ID</th>
-            <th style="width:25%">Prénom</th>
-            <th style="width:25%">Nom</th>
+            <th style="width:25%">Titre</th>
+            <th style="width:25%">Description</th>
+            <th style="width:25%">Propriétaire</th>
             <th style="width:25%" class="text-center">Actions</th>
         </tr>
         </thead>
@@ -27,6 +28,7 @@
         <tr th:each="t : ${tasks}">
             <td th:text="${t.id}">1</td>
             <td th:text="${t.title}">Titre</td>
+            <td th:text="${t.description}">Description</td>
             <td th:text="${t.owner != null ? t.owner.firstName + ' ' + t.owner.lastName : '—'}">Propriétaire</td>
             <td class="d-flex align-items-center justify-content-center">
                 <div class="d-flex gap-2">
