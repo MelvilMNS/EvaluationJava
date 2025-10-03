@@ -1,8 +1,6 @@
--- Users
-INSERT INTO users(id, first_name, last_name) VALUES (1, 'Alice', 'Dupont');
-INSERT INTO users(id, first_name, last_name) VALUES (2, 'Bob', 'Martin');
+INSERT INTO users(first_name, last_name) VALUES ('Alice', 'Dupont');
+INSERT INTO users(first_name, last_name) VALUES ('Bob', 'Martin');
 
--- Tasks (owner_id référence users.id)
-INSERT INTO tasks(id, title, description, owner_id) VALUES (1, 'Fix bug', 'Corriger un bug critique', 1);
-INSERT INTO tasks(id, title, description, owner_id) VALUES (2, 'Write docs', 'Rédiger la doc API', 2);
-INSERT INTO tasks(id, title, description, owner_id) VALUES (3, 'No owner task', 'Tâche sans propriétaire', NULL);
+INSERT INTO tasks(title, description, owner_id) VALUES ('Fix bug', 'Corriger un bug critique', 1);
+INSERT INTO tasks(title, description, owner_id) VALUES ('Write docs', 'Rédiger la doc API', 2);
+INSERT INTO tasks(title, description, owner_id) VALUES ('No owner task', 'Tâche sans propriétaire', NULL);
